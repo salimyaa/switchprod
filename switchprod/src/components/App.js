@@ -13,10 +13,10 @@ function App() {
       <header className="App-header">
        <h1>Préparation de traansition</h1>
       </header>
-      <body>
+      
         <R3calculator />
 
-      </body>
+      
 
     </div>
     </ChakraProvider>
