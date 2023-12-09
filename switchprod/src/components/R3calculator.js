@@ -70,7 +70,34 @@ function calculateR3()
   return vitesseR3;
 }
 
-
+    if(!diffVitesse)
+    {
+        return (
+            <div>
+                    
+            <h3>Prod de départ</h3>
+            
+            <Input placeholder='Poids' onChange={ event => updatePoidsInit(event.target.value) }/>
+            <Input placeholder='Vitesse'onChange={ event => updateVitesseInit(event.target.value) } />
+                   
+                   
+            <h3>Prod finale</h3>
+            <Input placeholder='Poids' onChange={ event => updatePoidsFinal(event.target.value) }/>
+            <IconButton
+              isRound={true}
+              variant='solid'
+              colorScheme='teal'
+              aria-label='Done'
+              fontSize='20px'
+              icon={<CheckIcon />} onClick={()=> {calculateR3(vitesseInit*(poidsInit/poidsFinal))}}
+              
+            />
+            </div>
+           
+            )
+    }
+    else
+    {
     return (
 <div>
         
@@ -101,5 +128,6 @@ function calculateR3()
 
 </div>
     )
+    }
 }
 export default R3Calculator;

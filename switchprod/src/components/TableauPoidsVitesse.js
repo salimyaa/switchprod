@@ -41,11 +41,11 @@ function TableauPoidsVitesse({tableauPoids,vitesseInit})
                 </Tr>
             </Thead>
             <Tbody>
-                {tabOjects.map((elem)=>{
+                {tabOjects.map((elem,index)=>{
                     return (
                         <Tr>
-                        <td key={`${elem.poids} `+`${elem.poids.index}`}>  {elem.poids}</td> 
-                        <td key={`${elem.vitesse} `+`${elem.vitesse.index}`}>  {Number(elem.vitesse).toFixed(2)}</td> 
+                        <td key={`${elem.poids} `+`${index}`}>  {elem.poids}</td> 
+                        <td key={`${elem.vitesse} `+`${index}`}>  {Number(elem.vitesse).toFixed(2)}</td> 
                         </Tr>
                     )
                 })}
