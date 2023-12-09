@@ -9,6 +9,7 @@ import {
     TableCaption,
     TableContainer,
   } from '@chakra-ui/react'
+  import '../styles/TableauPoidsVitesse.css'
 function TableauPoidsVitesse({tableauPoids,vitesseInit})
 {
     const thisTableauPoids = [...tableauPoids];
@@ -32,11 +33,12 @@ function TableauPoidsVitesse({tableauPoids,vitesseInit})
     
     return (
         <TableContainer>
-            <Table variant='simple'>
+            <Table variant='striped' colorScheme='teal' className='Table'>
             <Thead>
                 <Tr>
                     <Th>Poids</Th>
                     <Th>Vitesse</Th>
+                    
 
                 </Tr>
             </Thead>
@@ -45,7 +47,7 @@ function TableauPoidsVitesse({tableauPoids,vitesseInit})
                     return (
                         <Tr>
                         <td key={`${elem.poids} `+`${index}`}>  {elem.poids}</td> 
-                        <td key={`${elem.vitesse} `+`${index}`}>  {Number(elem.vitesse).toFixed(2)}</td> 
+                        <td key={`${elem.vitesse} `+`${index}`}>  {Math.round((Number(elem.vitesse) + 0.01) * 10) / 10}</td> 
                         </Tr>
                     )
                 })}
