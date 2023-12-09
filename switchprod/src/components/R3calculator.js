@@ -94,7 +94,7 @@ function calculateR3()
 <Text fontSize='xl'>Vitesse R3: {vitesseR3.toFixed(2)}m/min </Text>
 <Text fontSize='l'>Différence de vitesse: {diffVitesse.toFixed(2)}m/min/Kg </Text>
 <Text fontSize='l'>Différence de Poids: {diffPoids.toFixed(1)}Kg </Text>
-<TableauPoidsVitesse tableauPoids={tableauPoids}/>
+<TableauPoidsVitesse tableauPoids={tableauPoids} vitesseInit={vitesseInit}/>
 
 
 

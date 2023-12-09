@@ -9,9 +9,27 @@ import {
     TableCaption,
     TableContainer,
   } from '@chakra-ui/react'
-function TableauPoidsVitesse({tableauPoids})
+function TableauPoidsVitesse({tableauPoids,vitesseInit})
 {
-    console.log(tableauPoids);
+    const thisTableauPoids = [...tableauPoids];
+    const tableauVitesse=[]; 
+    for(let i=0; i<thisTableauPoids.length ;i++)
+    {
+        if(i==0)
+        {
+            tableauVitesse.push(vitesseInit);
+        }
+        else{
+            tableauVitesse.push((tableauVitesse[i-1])*(thisTableauPoids[i-1]/tableauPoids[i]))
+        }
+    }
+    const tabOjects =[];
+
+    for(let i =0; i<tableauVitesse.length;i++)
+    {
+        tabOjects.push({poids:tableauPoids[i],vitesse:tableauVitesse[i]});
+    }
+    
     return (
         <TableContainer>
             <Table variant='simple'>
@@ -23,14 +41,20 @@ function TableauPoidsVitesse({tableauPoids})
                 </Tr>
             </Thead>
             <Tbody>
-                
-                    
-                    {tableauPoids.map((poids,index)=>
-            {
-                return <Tr><td key={`${poids} `+`${index}`}>  {poids}</td></Tr>
-            })}
+                {tabOjects.map((elem)=>{
+                    return (
+                        <Tr>
+                        <td key={`${elem.poids} `+`${elem.poids.index}`}>  {elem.poids}</td> 
+                        <td key={`${elem.vitesse} `+`${elem.vitesse.index}`}>  {Number(elem.vitesse).toFixed(2)}</td> 
+                        </Tr>
+                    )
+                })}
+           
 
-                
+
+            
+
+           
             </Tbody>
         
         
