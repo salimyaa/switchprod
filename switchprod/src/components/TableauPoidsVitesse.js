@@ -30,6 +30,7 @@ function TableauPoidsVitesse({tableauPoids,vitesseInit})
     {
         tabOjects.push({poids:tableauPoids[i],vitesse:tableauVitesse[i]});
     }
+    console.log(tabOjects)
     
     return (
         <TableContainer>
