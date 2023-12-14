@@ -28,10 +28,26 @@ function TableauPoidsVitesse({tableauPoids,vitesseInit})
     
     const tabOjects =[];
 
+    const tabDiffVitesse=[];
+    tabDiffVitesse.push(0); // initialisation du premier element du tab 
+    for(let i=1;i<tableauVitesse.length;i++)
+    {
+        const pushVal =(+tableauVitesse[i]-tableauVitesse[i-1])
+       
+        tabDiffVitesse.push( pushVal);
+    }
+
+
+
+
+
+
     for(let i =0; i<tableauVitesse.length;i++)
     {
-        tabOjects.push({poids:tableauPoids[i],vitesse:tableauVitesse[i]});
+        tabOjects.push({poids:tableauPoids[i],vitesse:tableauVitesse[i],diffVitesse:tabDiffVitesse[i]});
     }
+    console.log(tabOjects)
+
     
     return (
         <TableContainer>
@@ -40,6 +56,7 @@ function TableauPoidsVitesse({tableauPoids,vitesseInit})
                 <Tr>
                     <Th>Poids</Th>
                     <Th>Vitesse</Th>
+                    <Th>&#x394; vitesse</Th>
                     
 
                 </Tr>
@@ -50,6 +67,8 @@ function TableauPoidsVitesse({tableauPoids,vitesseInit})
                         <Tr>
                         <td key={`${elem.poids} `+`${index}`}>  {elem.poids}</td> 
                         <td key={`${elem.vitesse} `+`${index}`}>  {Math.round((Number(elem.vitesse) + 0.01) * 10) / 10}</td> 
+                        <td key={`${elem.diffVitesse} `+`${index}`}>  {Math.round((Number(elem.diffVitesse) + 0.01) * 10) / 10}</td>
+                        
                         </Tr>
                     )
                 })}
