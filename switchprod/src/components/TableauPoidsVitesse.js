@@ -13,6 +13,7 @@ import {
 function TableauPoidsVitesse({tableauPoids,vitesseInit})
 {
     const thisTableauPoids = [...tableauPoids];
+    console.log("tableau poids :"+tableauPoids)
     const tableauVitesse=[]; 
     for(let i=0; i<thisTableauPoids.length ;i++)
     {
@@ -24,13 +25,13 @@ function TableauPoidsVitesse({tableauPoids,vitesseInit})
             tableauVitesse.push((tableauVitesse[i-1])*(thisTableauPoids[i-1]/tableauPoids[i]))
         }
     }
+    
     const tabOjects =[];
 
     for(let i =0; i<tableauVitesse.length;i++)
     {
         tabOjects.push({poids:tableauPoids[i],vitesse:tableauVitesse[i]});
     }
-    console.log(tabOjects)
     
     return (
         <TableContainer>

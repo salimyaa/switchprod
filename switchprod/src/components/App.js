@@ -1,7 +1,7 @@
 
 import '../styles/App.css';
 import * as React from 'react'
-import { ChakraProvider } from '@chakra-ui/react'
+import { ChakraProvider,Heading } from '@chakra-ui/react'
 
 import R3calculator from './R3calculator'
 
@@ -11,7 +11,7 @@ function App() {
     <ChakraProvider>
        <div className="App">
       <header className="App-header">
-       <h1>Préparation de traansition</h1>
+       <Heading><h1>Préparation de transition</h1></Heading>
       </header>
       
         <R3calculator />

@@ -1,5 +1,5 @@
 
-  import { Input,Text } from '@chakra-ui/react'
+  import { Input,Text,NumberInput } from '@chakra-ui/react'
   import { IconButton } from '@chakra-ui/react'
   import {CheckIcon} from '@chakra-ui/icons'
 import { useState, useMemo} from 'react'
@@ -13,6 +13,7 @@ const [vitesseR3,updateVitesseR3] = useState(0)
 const diffPoids =useMemo(
     ()=>
     {
+        
         return poidsFinal-poidsInit;
     }
     , [poidsFinal]
@@ -20,7 +21,7 @@ const diffPoids =useMemo(
 const diffVitesse =useMemo(
     ()=>
     {
-        return (diffPoids?(vitesseR3-vitesseInit)/diffPoids:0);
+        return (diffPoids?(vitesseR3-vitesseInit)/Math.abs(diffPoids):0);
     },[vitesseR3],[diffPoids]
 )
 const NbSteps = useMemo(
@@ -34,20 +35,26 @@ var tableauPoids = useMemo(
         var tempTab=[];
         var diffPoidsTemp=diffPoids;
         var poidCourrant= Number(poidsInit);
-        for(var i=0 ;i<=NbSteps; i++)
+        
+        
+        for(var i=0 ;i<= Math.abs(NbSteps); i++)
         {
             if(diffPoidsTemp<=-1 || diffPoidsTemp>=1)
             {
+                console.log("ok")
                 tempTab.push(poidCourrant);
                 poidCourrant = Number(poidCourrant) + Math.sign(diffPoidsTemp) ;
                 diffPoidsTemp = diffPoidsTemp - Math.sign(diffPoidsTemp);
+                
 
                 
             }
             else{
+                console.log("reste")
                 tempTab.push(poidCourrant);
                 poidCourrant = Number(poidCourrant) + (Math.sign(diffPoids)*diffPoidsTemp);
                 diffPoidsTemp=0;
+                
                 
                 
             }
@@ -55,6 +62,7 @@ var tableauPoids = useMemo(
              
             
         }
+        
         
         return tempTab;
 
@@ -77,12 +85,12 @@ function calculateR3()
                     
             <h3>Prod de départ</h3>
             
-            <Input placeholder='Poids' onChange={ event => updatePoidsInit(event.target.value) }/>
+            <Input placeholder='Poids initial' onChange={ event => updatePoidsInit(event.target.value) }/>
             <Input placeholder='Vitesse'onChange={ event => updateVitesseInit(event.target.value) } />
                    
                    
             <h3>Prod finale</h3>
-            <Input placeholder='Poids' onChange={ event => updatePoidsFinal(event.target.value) }/>
+            <Input placeholder='Poids final' onChange={ event => updatePoidsFinal(event.target.value) }/>
             <IconButton
               isRound={true}
               variant='solid'
@@ -103,12 +111,12 @@ function calculateR3()
         
 <h3>Prod de départ</h3>
 
-<Input placeholder='Poids' onChange={ event => updatePoidsInit(event.target.value) }/>
+<Input placeholder='Poids initial' onChange={ event => updatePoidsInit(event.target.value) }/>
 <Input placeholder='Vitesse'onChange={ event => updateVitesseInit(event.target.value) } />
        
        
 <h3>Prod finale</h3>
-<Input placeholder='Poids' onChange={ event => updatePoidsFinal(event.target.value) }/>
+<Input placeholder='Poids finale' onChange={ event => updatePoidsFinal(event.target.value) }/>
 <IconButton
   isRound={true}
   variant='solid'
