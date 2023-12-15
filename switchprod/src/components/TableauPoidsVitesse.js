@@ -66,8 +66,8 @@ function TableauPoidsVitesse({tableauPoids,vitesseInit})
                     return (
                         <Tr>
                         <td key={`${elem.poids} `+`${index}`}>  {elem.poids}</td> 
-                        <td key={`${elem.vitesse} `+`${index}`}>  {Math.round((Number(elem.vitesse) + 0.01) * 10) / 10}</td> 
-                        <td key={`${elem.diffVitesse} `+`${index}`}>  {Math.round((Number(elem.diffVitesse) + 0.01) * 10) / 10}</td>
+                        <td key={`${elem.vitesse} `+`${index}`}>  {Math.round((Number(elem.vitesse) + 0.02) * 10) / 10}</td> 
+                        <td key={`${elem.diffVitesse} `+`${index}`}>  {Math.round((Number(elem.diffVitesse)) * 10) / 10}</td>
                         
                         </Tr>
                     )
