@@ -14,8 +14,8 @@ function TableauPoidsVitesse({tableauPoids,vitesseInit})
 {
     const thisTableauPoids = [...tableauPoids];
     console.log("tableau poids :"+tableauPoids)
-    const tableauVitesse=[]; 
-    for(let i=0; i<thisTableauPoids.length ;i++)
+    var tableauVitesse=[]; 
+    for(let i=0; i<thisTableauPoids.length ;i++) // tableau de poids 
     {
         if(i==0)
         {
@@ -25,6 +25,7 @@ function TableauPoidsVitesse({tableauPoids,vitesseInit})
             tableauVitesse.push((tableauVitesse[i-1])*(thisTableauPoids[i-1]/tableauPoids[i]))
         }
     }
+    tableauVitesse = tableauVitesse.map((v) => Math.round((Number(v) + 0.02) * 10) / 10 )
     
     const tabOjects =[];
 
@@ -36,7 +37,7 @@ function TableauPoidsVitesse({tableauPoids,vitesseInit})
        
         tabDiffVitesse.push( pushVal);
     }
-
+    
 
 
 
