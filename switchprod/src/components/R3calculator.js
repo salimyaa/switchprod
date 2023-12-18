@@ -35,27 +35,26 @@ var tableauPoids = useMemo(
         var tempTab=[];
         var diffPoidsTemp=diffPoids;
         var poidCourrant= Number(poidsInit);
+        console.log("poids courant: "+poidCourrant)
+        console.log("diff poids"+diffPoids)
+        tempTab.push(poidCourrant)
         
-        
-        for(var i=0 ;i<= Math.abs(NbSteps); i++)
+        for(var i=1 ;i<= Math.abs(NbSteps); i++)
         {
-            if(diffPoidsTemp<=-1 || diffPoidsTemp>=1)
+            if(diffPoidsTemp<=-1 || diffPoidsTemp>=1 )
             {
-                console.log("ok")
+                console.log(diffPoidsTemp);
+                
+                poidCourrant = Number(poidCourrant) + Math.sign(diffPoidsTemp)*1 ;
+                diffPoidsTemp = diffPoidsTemp - Math.sign(diffPoidsTemp)*1 ;
                 tempTab.push(poidCourrant);
-                poidCourrant = Number(poidCourrant) + Math.sign(diffPoidsTemp) ;
-                diffPoidsTemp = diffPoidsTemp - Math.sign(diffPoidsTemp);
-                
-
-                
             }
             else{
-                console.log("reste")
-                tempTab.push(poidCourrant);
-                poidCourrant = Number(poidCourrant) + (Math.sign(diffPoids)*diffPoidsTemp);
-                diffPoidsTemp=0;
+                console.log(diffPoidsTemp);
                 
-                
+                poidCourrant = Number(poidCourrant) + (diffPoidsTemp);
+                tempTab.push(poidCourrant)      
+                diffPoidsTemp=0;       
                 
             }
             
@@ -66,7 +65,7 @@ var tableauPoids = useMemo(
         
         return tempTab;
 
-    }, [NbSteps]
+    },[vitesseR3]
 )
 
 
