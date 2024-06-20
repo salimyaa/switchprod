@@ -38,7 +38,7 @@ function TableauPoidsVitesse({tableauPoids,vitesseInit})
         else{
             if(i===1)
             {
-                tabHeure.push(new Date(tabHeure[i-1].getTime()+45/vitesseInit*1000))
+                tabHeure.push(new Date(tabHeure[i-1].getTime()+45/vitesseInit*60000))
             }
             else{
                 tabHeure.push(new Date(tabHeure[i-1].getTime()+60000));
