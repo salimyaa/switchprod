@@ -35,11 +35,17 @@ function TableauPoidsVitesse({tableauPoids,vitesseInit})
     {
         if(i==0)
         {
-            
             tabHeure.push(new Date());
         }
         else{
-            tabHeure.push(new Date());
+            if(i==1)
+            {
+                tabHeure.push(new Date(this.tabHeure[i-1].getTime()+Math.round(45/vitesseInit)*1000))
+            }
+            else{
+                tabHeure.push(new Date(this.tabHeure[i-1].getTime()+6000));
+            }
+            
         }
     }
     console.log(tabHeure);
