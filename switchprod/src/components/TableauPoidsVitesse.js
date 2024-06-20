@@ -31,11 +31,12 @@ function TableauPoidsVitesse({tableauPoids,vitesseInit})
 
     const tabDiffVitesse=[];
     const tabHeure=[]; 
+    tabHeure.push(new Date());
     for(let i=0; i<thisTableauPoids.length ;i++) // tableau des heures 
     {
         if(i==0)
         {
-            tabHeure.push(new Date());
+            
         }
         else{
             if(i===1)
