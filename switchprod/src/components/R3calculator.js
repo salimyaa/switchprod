@@ -108,13 +108,13 @@ function calculateR3()
     return (
 <div>
         
-<h3>Prod de départ</h3>
+<h3>Production de départ</h3>
 
 <Input placeholder='Poids initial' onChange={ event => updatePoidsInit(event.target.value) }/>
 <Input placeholder='Vitesse'onChange={ event => updateVitesseInit(event.target.value) } />
        
        
-<h3>Prod finale</h3>
+<h3>Production finale</h3>
 <Input placeholder='Poids finale' onChange={ event => updatePoidsFinal(event.target.value) }/>
 <IconButton
   isRound={true}
