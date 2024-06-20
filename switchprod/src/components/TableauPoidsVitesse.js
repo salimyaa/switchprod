@@ -44,7 +44,7 @@ function TableauPoidsVitesse({tableauPoids,vitesseInit})
                 tabHeure.push(new Date(tabHeure[i-1].getTime()+Math.round(45/vitesseInit)*1000))
             }
             else{
-                tabHeure.push(new Date(tabHeure[i-1].getTime()+6000));
+                tabHeure.push(new Date(tabHeure[i-1].getTime()+60000));
             }
             
         }
@@ -91,7 +91,7 @@ function TableauPoidsVitesse({tableauPoids,vitesseInit})
                         <td key={`${elem.poids} `+`${index}`}>  {elem.poids}</td> 
                         <td key={`${elem.vitesse} `+`${index}`}>  {Math.round((Number(elem.vitesse) + 0.02) * 10) / 10}</td> 
                         <td key={`${elem.diffVitesse} `+`${index}`}>  {Math.round((Number(elem.diffVitesse)) * 10) / 10}</td>
-                        <td key={`${elem.heure} `+`${index}`}>  {elem.heure}</td>
+                        <td key={`${elem.heure} `+`${index}`}>  {elem.heure.getHours()}:{elem.heure.getMinutes()}:{elem.heure.getSeconds()}</td>
                         
                         </Tr>
                     )
