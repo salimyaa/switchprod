@@ -42,6 +42,7 @@ function TableauPoidsVitesse({tableauPoids,vitesseInit})
             tabHeure.push(new Date());
         }
     }
+    console.log(tabHeure);
 
     tabDiffVitesse.push(0); // initialisation du premier element du tab 
     for(let i=1;i<tableauVitesse.length;i++)
