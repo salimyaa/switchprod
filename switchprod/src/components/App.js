@@ -18,7 +18,7 @@ function App() {
         <R3calculator />
 
       
-        <footer> <Text fontSize='xs'>20/06/24 18:00</Text></footer>
+        <footer> <Text fontSize='xs'>23/06/24 18:10</Text></footer>
     </div>
     </ChakraProvider>
    
