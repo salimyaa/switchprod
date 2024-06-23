@@ -77,6 +77,7 @@ function TableauPoidsVitesse({tableauPoids,vitesseInit})
                     <Th>Vitesse</Th>
                     <Th>&#x394; vitesse</Th>
                     <Th>Heure</Th>
+                    <Th>Diff.Vitesse</Th>
                     
 
                 </Tr>
@@ -89,7 +90,7 @@ function TableauPoidsVitesse({tableauPoids,vitesseInit})
                         <td key={`${elem.vitesse} `+`${index}`}>  {Math.round((Number(elem.vitesse) + 0.02) * 10) / 10}</td> 
                         <td key={`${elem.diffVitesse} `+`${index}`}>  {Math.round((Number(elem.diffVitesse)) * 10) / 10}</td>
                         <td key={`${elem.heure} `+`${index}`}>  {elem.heure.getHours()}:{elem.heure.getMinutes().toString().padStart(2, '0')}:{elem.heure.getSeconds().toString().padStart(2, '0')}</td>
-                        
+                        <td key={`${elem.vitesse} `+`${index}`}>  {((Math.round((Number(elem.vitesse) + 0.02) * 10) / 10)*-0.04)+0.65}</td> 
                         </Tr>
                     )
                 })}
