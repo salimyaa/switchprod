@@ -84,7 +84,9 @@ function calculateR3()
                     
             <h3>Prod de départ</h3>
             <label>Poids initial</label>
-            <NumberInput onChange={ event => updatePoidsInit(event.target.value) }></NumberInput>
+            <NumberInput onChange={ event => updatePoidsInit(event.target.value) }>
+            <NumberInputField />
+            </NumberInput>
             <Input placeholder='Vitesse'onChange={ event => updateVitesseInit(event.target.value) } />
                    
                    
