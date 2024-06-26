@@ -83,14 +83,16 @@ function TableauPoidsVitesse({tableauPoids,vitesseInit})
                 </Tr>
             </Thead>
             <Tbody>
-                {tabOjects.map((elem,index)=>{
+                {tabOjects.map((elem,index)=>{//j'ai un peu remixé l'index de la différence de vitesse p/forming pour débug
                     return (
                         <Tr>
                         <td key={`${elem.poids} `+`${index}`}>  {elem.poids}</td> 
                         <td key={`${elem.vitesse} `+`${index}`}>  {Math.round((Number(elem.vitesse) + 0.02) * 10) / 10}</td> 
                         <td key={`${elem.diffVitesse} `+`${index}`}>  {Math.round((Number(elem.diffVitesse)) * 10) / 10}</td>
                         <td key={`${elem.heure} `+`${index}`}>  {elem.heure.getHours()}:{elem.heure.getMinutes().toString().padStart(2, '0')}:{elem.heure.getSeconds().toString().padStart(2, '0')}</td>
-                        <td key={`${elem.vitesse} `+`${index}`}>  {(Math.round((Number(((elem.vitesse*-0.04)+0.65)) + 0.02) * 100) / 100)}</td> 
+                        <td key={`${elem.vitesse} `+`${index*elem.diffVitesse}`}> 
+                             {(Math.round((Number(((elem.vitesse*-0.04)+0.65)) + 0.02) * 100) / 100)} 
+                        </td> 
                         </Tr>
                     )
                 })}
